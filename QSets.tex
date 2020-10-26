@@ -1,0 +1,115 @@
+Sets
+1.	(20 p.)
+	Which of the following statements is true for each pair of sets \( A \) and \( B \)?
+Hide solution
+
+Correct answer: E
+Solution: Let us prove the identity E: \( A\times (B\cup C)=(A\times B)\cup (A\times C) \). We will prove that \( A\times (B\cup C)\subseteq (A\times B)\cup (A\times C) \) and \( A\times (B\cup C)\supseteq (A\times B)\cup (A\times C) \).
+
+\( 1^{\circ} \) Assume that a pair \( (x,y) \) belongs to the set \( A\times (B\cup C) \). This means that \( x\in A \) and \( y\in B\cup C \). The latter means that \( y\in B \) or \( y\in C \). If \( y\in B \) then \( (x,y)\in A\times B \) hence \( (x,y)\in (A\times B)\cup (A\times C) \). Similarly we prove that \( y\in C \) implies \( (x,y)\in (A\times B)\cup (A\times C) \) as well. Thus we proved that \[ A\times (B\cup C)\subseteq (A\times B)\cup (A\times C).\]
+
+\( 2^{\circ} \) For the other inclusion we assume that \( (x,y)\in (A\times B)\cup (A\times C) \). Then we have \( (x,y) \in A\times B \) or \( (x,y)\in A\times C \). In the first case we have \( x\in A \) and \( y\in B \) which implies that \( y\in B\cup C \) and consequently \( (x,y)\in A\times (B\cup C) \). In a similar way we treat the case \( (x,y)\in A\times C \). Thus \( (A\times B)\cup (A\times C)\subseteq A\times (B\cup C) \) and the identity E is established.
+
+   A    \( A\times B=B\times A \)
+
+   B    \( A\times(B\cup C)=(A\times B)\cup C \)
+
+   C    \( A\cup( B\times C)=(A\cup B)\times (A\cup C) \)
+
+   D    \( A\cup (B\times C)=(A\cup B)\times C \)
+
+   E    \( A\times (B\cup C)=(A\times B)\cup (A\times C) \)
+
+   N
+	
+
+2.	(20 p.)
+	Let \( A \) be the set of all positive integers smaller than \( 20 \) that are divisible by \( 2 \). Let \( B \) be the set of all positive integers smaller than \( 20 \) that are divisible by \( 3 \). Determine the number of elements in the set \[ \Big(A\times B\Big) \cup \Big(B \times A \Big).\]
+Hide solution
+
+Correct answer: A
+Solution: We start from observing that \( A=\{2,4,6,8,10,12,14,16,18\} \) and \( B=\{3,6,9,12,15,18\} \). Let us define \( M=A\times B \) and \( N=B\times A \). The sets \( M \) and \( N \) contain \( 9\cdot 6=54 \) elements each. They \( M \) and \( N \) have the following 9 elements in common: \[ M\cap N=\left\{(6,6), (6,12), (6,18), (12,6), (12,12), (12,18), (18,6), (18,12), (18,18) \right\}. \] We can write \( M\cup N=M\cup (N\setminus M) \) (explain!), and sets \( M \) and \( N\setminus M \) are disjoint, hence \( |M\cup N|=|M|+|N\setminus M| \). The number of elements in \( N\setminus M \) is equal to \( 54-9=45 \). Therefore \( |M\cup N|=54+45=99 \).
+
+   A    \( 99 \)
+
+   B    \( 100 \)
+
+   C    \( 108 \)
+
+   D    \( 111 \)
+
+   E    \( 120 \)
+
+   N
+	
+
+3.	(20 p.)
+	Let \( A \) be the set of all positive integers less than \( 100 \) that are divisible by \( 5 \). Let \( B \) be the set of all positive integers less than \( 100 \) that are divisible by \( 17 \). Determine the number of elements of the set \( A\cap B \).
+Hide solution
+
+Correct answer: B
+Solution: The set \( A\cap B \) contains all numbers that belong to both \( A \) and \( B \). These numbers must be positive integers that are smaller than 100 and are divisible by both \( 5 \) and \( 17 \). The only such number is \( 85 \), hence the answer is B.
+
+   A    \( 0 \)
+
+   B    \( 1 \)
+
+   C    \( 2 \)
+
+   D    \( 3 \)
+
+   E    \( 4 \)
+
+   N
+	
+
+4.	(20 p.)
+	Let \( A=\{1,2,3,4\} \) and \( B=\{2,3,5\} \). Which of the following ordered pairs does not belong to \( B\times A \)?
+Hide solution
+
+Correct answer: B
+Solution: The Cartesian product \( B\times A \) contains all the ordered pairs whose first component is from \( B \) and second is from \( A \). We can list all the elements of \( B\times A \): \[ B\times A=\{(2,1), (2,2), (2,3), (2,4), (3,1), (3,2), (3,3), (3,4), (5,1), (5,2), (5,3), (5,4)\}.\] Hence the answer is B.
+
+   A    \( (3,3) \)
+
+   B    \( (4,5) \)
+
+   C    \( (5,3) \)
+
+   D    \( (2,1) \)
+
+   E    \( (2,2) \)
+
+   N
+	
+
+5.	(20 p.)
+	Consider the following statements:
+
+I: For each two non-empty sets \( M \) and \( N \) the following equality holds \( M\cap (M\times N)=\emptyset \).
+
+II: For each two non-empty sets \( M \) and \( N \) the following equality holds: \( M\times N\neq N\times M \).
+
+III: For each two non-empty sets \( M \) and \( N \) the following equality holds: \( M\times (M\cup N)\neq (M\cup N)\times M \).
+
+Choose the correct answer.
+Hide solution
+
+Correct answer: E
+Solution: The statement I is false: Example is \( M=\{1,(1,2)\} \) and \( N=\{2\} \). Then \( M\times N=\{(1,2),((1,2),2)\} \). Therefore \( M\cap (M\times N)=\{(1,2)\} \).
+
+The statement II is false. Example: \( M=N=\{1\} \).
+
+The statement III is false Example: \( M=N=\{1\} \).
+
+   A    All of the above statements are true.
+
+   B    Only I is true.
+
+   C    Only I and II are true.
+
+   D    Only II and III are true
+
+   E    All of the above statements are false
+
+   N    

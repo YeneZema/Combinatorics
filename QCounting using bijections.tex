@@ -1,0 +1,114 @@
+Counting using bijections
+1.	(29 p.)
+	A permutation \( (a_1, a_2, \dots, a_n) \) of the set \( \{ \)1, 2, .., \( n\} \) is called moderate if for each \( k\in\{ \) 2, 3, ..., \( n\} \) at least one of the numbers \( a_k+1 \) and \( a_k-1 \) belongs to the set \( \{a_1, a_2, \dots, a_{k-1}\} \). For example (3, 4, 2, 5, 1) is a moderate permutation of \( \{ \)1, 2, 3, 4, 5\( \} \), while (3, 4, 1, 5, 2) is not.
+
+Let \( \alpha \) be the number of moderate permutations of the set \( \{ \)1, 2, 3, ..., 1000\( \} \). Then the number \( \lfloor\log_2\alpha\rfloor \) belongs to the interval
+Hide solution
+
+Correct answer: B
+Solution: Denote by \( A_n \) the set of moderate permutations of \( \{1,2,\dots, n\} \). We will prove by induction that for each moderate permutation \( (a_1, \dots, a_n) \) and each \( k\in\{1,2,3,\dots, n\} \) there are non-negative integers \( i_k \) and \( j_k \) such that \[ \{a_1, a_2,\dots, a_k\}=\{a_1-i_k, a_1-i_k+1,\dots, a_1,a_1+1,\dots, a_1+j_k\}.\] The statement clearly holds for \( k=1 \) with \( i_1=j_1=0 \). Assume that the statement holds for \( k\in\{1,2,\dots, n-1\} \) and let us prove it for \( k+1 \). According to induction hypothesis we have that there exist \( i_k \) and \( j_k \) such that \( \{a_1, a_2,\dots, a_k\}=\{a_1-i_k, a_1-i_k+1,\dots, a_1,a_1+1,\dots, a_1+j_k\} \). Since \( a_{k+1}-1\in\{a_1, a_2,\dots, a_k\} \) or \( a_{k+1}+1\in\{a_1, a_2,\dots, a_k\} \) and \( a_{k+1}\not\in \{a_1,\dots, a_k\} \) we must have \( a_{k+1}=a_1-i_k-1 \) or \( a_{k+1}=a_1+j_k+1 \). In the first case we take \( (i_{k+1},j_{k+1})=(i_k+1,j_k) \) and in the second \( (i_{k+1},j_{k+1})=(i_k,j_k+1) \). Denote by \( A_{n,m} \) the set of moderate permutations of \( \{1,2,\dots, n\} \) such that \( a_1=m \). Then \( |A_n|=|A_{n,1}|+\cdots+|A_{n,n}| \). Denote by \( J_{n-1,m-1} \) the set of ordered sequences of length \( n-1 \) consisting of \( m-1 \) signs \( S \) and \( n-m \) signs \( L \). There is a bijection \( f:J_{n-1,m-1}\to A_{n,m} \). Indeed, for each \( (s_1,\dots, s_{n-1})\in J_{n-1,m-1} \) define \( f(s_1,\dots, s_{n-1}) \) as the sequence \( (a_1,\dots, a_n) \) such that \( a_1=m \), and for \( k\geq 2 \) we define \[ a_k=\left\{\begin{array}{rl}\max\{a_1,a_2,\dots, a_{k-1}\}+1,&\mbox{ if }s_k=L, & \min\{a_1,a_2,\dots, a_{k-1}\}-1, &\mbox{ if }s_k=S.\end{array} \right.\] Therefore \( |A_{n,m}|=|J_{n-1,m-1}|=\binom{n-1}{m-1} \). Thus \[ |A_n|=\sum_{m=1}^{n} |A_{n,m}|=\sum_{m=1}^n \binom{n-1}{m-1}=2^{n-1}.\]
+
+   A    [0, 500)
+
+   B    [500,1000)
+
+   C    [1000,1500)
+
+   D    [1500,2000)
+
+   E    [2000,\( +\infty \))
+
+   N
+	
+
+2.	(14 p.)
+	Determine the number of ways in which we can distribute 20 identical apples to 5 different students if each student has to get at least one apple.
+Hide solution
+
+Correct answer: A
+Solution: We first give one apple to each of the students. Then we need to find the way to distribute \( 15 \) apples to \( 5 \) students in such a way that not every student has to get an apple. Distributing \( 15 \) apples to \( 5 \) students is the same as arranging \( 15 \) apples and \( 4 \) dividers in a row. Then, the first student picks all the apples before the first divider, second student picks the apples between first and second divider, and so on. The last (5th) student takes the apples after the fourth divider. Let us find the number of ways to arrange \( 15 \) apples and \( 4 \) dividers in a row. This is the same as initially placing \( 19 \) objects in a row, and choosing \( 15 \) of them to be apples, and \( 4 \) of them to be dividers. Hence the answer is \[ \binom{19}{4}=\frac{19\cdot 18\cdot 17\cdot 16}{1\cdot 2\cdot 3\cdot 4}=3876.\]
+
+   A    1024
+
+   B    3876
+
+   C    4292
+
+   D    4295
+
+   E    \( 20^5 \)
+
+   N
+	
+
+3.	(18 p.)
+	Determine the number of ways in which we can distribute 20 identical apples to 5 different students, such that the following conditions are satisfied:
+
+(i) Each student has to get at least one apple;
+(ii) The first, third, and the fifth student have to get an even number of apples;
+(iii) The second and fourth student have to get an odd number of apples;
+(iv) All apples have to be distributed.
+Hide solution
+
+Correct answer: B
+Solution: Informal description of the idea
+The idea is the following. We must give two apples to the first, third, and fifth student. We also have to give one apple to the second and fourth student. Since all apples are identical, we may as well start our distribution of apples with these mandatory moves. Then we have to distribute the remaining 12 apples to 5 students, and each has to get an even number out of those remaining apples. In order to do this we can make 6 bags with 2 apples in each and then we are distributing 6 bags to 5 students, and this is the same as placing 6 bags and 4 dividers in a row, which is a well known problem (you can read about it here). The answer is \( \binom{10}4=210 \).
+
+Formal solution The formal argument goes as follows: Denote by \( S \) the set of all distributions of \( 20 \) apples to \( 5 \) students that satisfy the conditions (i)-(iv). Then \[ S=\{(a,b,c,d,e)\in\mathbb N^5: a+b+c+d+e=20, 2\mid a, 2\mid c, 2\mid e, 2\nmid b, 2\nmid d\}.\] Consider the set \( T \) defined in the following way: \[ T=\{(v,w,x,y,z)\in\mathbb N_0^5: v+w+x+y+z=6\}.\] Consider the function \( f:S\to T \) given by: \[ f(a,b,c,d,e)=\left( \frac{a-2}2, \frac{b-1}2, \frac{c-2}2,\frac{d-1}2,\frac{e-2}2\right).\] The function \( f \) is a bijection hence \( |S|=|T| \). The number of elements in \( T \) is the same as the number of ways for distributing \( 6 \) apples to \( 5 \) students without restrictions.
+
+Distributing \( 6 \) apples to \( 5 \) students is the same as arranging \( 6 \) apples and \( 4 \) dividers in a row. Then, the first student picks all the apples before the first divider, second student picks the apples between first and second divider, and so on. The last (5th) student takes the apples after the fourth divider. Let us find the number of ways to arrange \( 6 \) apples and \( 4 \) dividers in a row. This is the same as initially placing \( 10 \) objects in a row, and choosing \( 6 \) of them to be apples, and \( 4 \) of them to be dividers. Hence the answer is \[ \binom{10}{4}=\frac{10\cdot 9\cdot 8\cdot 7}{1\cdot 2\cdot 3\cdot 4}=210.\]
+
+   A    200
+
+   B    210
+
+   C    220
+
+   D    230
+
+   E    240
+
+   N
+	
+
+4.	(22 p.)
+	There are 5 students in a room, and 10 identical apples in a box. In how many ways can the students take apples in such a way that each student takes at least one apple, but not all the apples have to be taken from the box?
+Hide solution
+
+Correct answer: C
+Solution: Assume that there is a phantom student who takes all the remaining apples. Then the problem becomes the following:
+In how many ways can we distribute 10 identical apples to 6 distinct students?
+
+Distributing 10 apples to 6 students is the same as arranging 10 apples and 5 dividers in a row. Then, the first student picks all the apples before the first divider, second student picks the apples between first and second divider, and so on. The last (6th) student takes the apples after the fifth divider. Let us find the number of ways to arrange 10 apples and 6 dividers in a row. This is the same as initially placing 16 objects in a row, and choosing 10 of them to be apples, and 5 of them to be dividers. Hence the answer is \[ \binom{16}{5}=\frac{16\cdot 15\cdot 14\cdot 13\cdot 12}{1\cdot 2\cdot 3\cdot 4\cdot 5}=4368.\]
+
+   A    1820
+
+   B    3876
+
+   C    4368
+
+   D    5832
+
+   E    7926
+
+   N
+	
+
+5.	(14 p.)
+	Determine the number of ways in which we can distribute 8 identical apples to 5 different students. Not all students have to get apples.
+Hide solution
+
+Correct answer: A
+Solution: Distributing \( 8 \) apples to \( 5 \) students is the same as arranging \( 8 \) apples and \( 4 \) dividers in a row. Then, the first student picks all the apples before the first divider, second student picks the apples between first and second divider, and so on. The last (5th) student takes the apples after the fourth divider. Let us find the number of ways to arrange \( 8 \) apples and \( 4 \) dividers in a row. This is the same as initially placing \( 12 \) objects in a row, and choosing \( 8 \) of them to be apples, and \( 4 \) of them to be dividers. Hence the answer is \[ \binom{12}{4}=\frac{12\cdot 11\cdot 10\cdot 9}{1\cdot 2\cdot 3\cdot 4}=495.\]
+
+   A    495
+
+   B    536
+
+   C    720
+
+   D    \( 8^5 \)
+
+   E    \( 5^8 \)
+
+   N    

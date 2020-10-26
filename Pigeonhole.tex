@@ -1,0 +1,105 @@
+\RequirePackage[l2tabu, orthodox]{nag}
+\documentclass{article}
+
+\usepackage{amsmath,amsfonts,amsthm,amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage[colorlinks=false, pdfborder={0 0 0}]{hyperref}
+\usepackage{cleveref}
+
+% various theorems, numbered by section
+
+\newtheorem{example}{Example}[section]
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{conj}[thm]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{defns}[thm]{Definitions}
+\newtheorem{con}[thm]{Construction}
+\newtheorem{exmp}[thm]{Example}
+\newtheorem{exmps}[thm]{Examples}
+\newtheorem{notn}[thm]{Notation}
+\newtheorem{notns}[thm]{Notations}
+\newtheorem{addm}[thm]{Addendum}
+\newtheorem{exer}[thm]{Exercise}
+
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{rems}[thm]{Remarks}
+\newtheorem{warn}[thm]{Warning}
+\newtheorem{sch}[thm]{Scholium}
+\DeclareMathOperator{\id}{id}
+
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}} 	% Horizontal rule
+
+\makeatletter							% Title
+\def\printtitle{%						
+    {\centering \@title\par}}
+\makeatother									
+
+\makeatletter							% Author
+\def\printauthor{%					
+    {\centering \large \@author}}				
+\makeatother							
+
+% ------------------------------------------------------------------------------
+% Metadata (Change this)
+% ------------------------------------------------------------------------------
+\title{	\normalsize \textsc{} 									% Upper rule
+			\LARGE \textbf{\uppercase{Pigeonhole Principle}}	% Title
+			\HRule{1pt} \\ [0.5cm]								% Lower rule + 0.5cm spacing
+			\normalsize \today									% Todays date
+		}
+
+\author{
+		Miliyon T.\\	
+		Addis Ababa University\\	
+		Department of Mathematics\\
+        \texttt{miliyon@ymail.com} \\
+}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+\begin{defn}\footnote{Peter Gustav Lejeune Dirichlet, ($1805 - 1859$).}
+If $n+1$ objects(pigeons) are placed into $n$ boxes (pigeonholes), then at least one box contains more than one object.
+\end{defn}
+
+\begin{defn}[\textbf{Generalized pigeonhole principle}]
+If $m$ objects are placed into $k$ boxes, then some box contains at least $\lceil\frac{m}{k}\rceil$ objects.
+\end{defn}
+\section{Application}
+
+\begin{exmp}
+Given $m$ integers $a_1,a_2,\ldots,a_m$ there exists $k$ and $l$ with $1\leq k<l\leq m$, such that
+\[a_{k+1}+a_{k+2}+\cdots+a_l\]
+is divisible by m.
+\end{exmp}
+\begin{proof}[Solution]
+Consider the following sums
+\[a_1,a_1+a_2,a_1+a_2+a_3, \ldots , a_1+a_2+\cdots+a_m \]
+If one of the above sum is divisible by $m$, then we are done. But if we got a non-zero remainder when we divide the above sums by $m$, then we will get
+\[1,2,\ldots , m-1 \text{ as remainder.}\]
+Since there are $m$ sums, and $m-1$ possible values for remainder. Therefore there are integer $k$ and $l$ with $k<l$ such that $a_1+a_2+\cdots+a_k$ and $a_1+a_2+\cdots+a_l$ have the same remainder $r$ when divided by $m$. Thus,
+\begin{align}
+a_1+a_2+\cdots+a_k=am+r \label{pigex1}\\
+\qquad a_1+a_2+\cdots+a_l=bm+r\label{pigex2}
+\end{align}
+Now subtract (\ref{pigex2}) from (\ref{pigex1})
+\begin{align*}
+\Rightarrow a_{k+1}+a_{k+2}+\cdots+a_l=(b-a)m
+\end{align*}
+Hence
+\begin{align*}
+m|(a_{k+1}+a_{k+2}+\cdots+a_l)
+\end{align*}
+\end{proof}
+\end{document}

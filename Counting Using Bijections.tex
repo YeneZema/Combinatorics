@@ -1,0 +1,52 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}								% Package to create dummy text
+\usepackage{amsmath,amsfonts,amsthm,amssymb}					% Math packages
+\usepackage[pdftex]{graphicx}									% Enable pdflatex
+\usepackage{hyperref} % URLs
+\setlength\parindent{0pt}%noindet-to-whole-document
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{conj}[thm]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{defns}[thm]{Definitions}
+\newtheorem{con}[thm]{Construction}
+\newtheorem{exmp}[thm]{Example}
+\newtheorem{notn}[thm]{Notation}
+\newtheorem{notns}[thm]{Notations}
+\newtheorem{addm}[thm]{Addendum}
+\newtheorem{exer}[thm]{Exercise}
+\newtheorem{rem}[thm]{Remark}
+\theoremstyle{plain}
+
+
+
+\begin{document}
+\nocite{}
+
+\title{Counting Using Bijections}
+\author{Miliyon T.}
+\date{October 7, 2013}
+\maketitle
+
+We will only count elements of sets. Whenever we are faced with a combinatorial problem, we will put it in the form "How many elements does the set S have?"
+
+One of the most widely used facts in combinatorics is that two sets have the same number of elements if and only if there is a bijection between them. Let us see how we can use this fact in solving problems.
+
+\begin{exmp}
+In how many ways can we distribute 15 identical apples to 4 distinct students. Not all students have to get an apple.
+\end{exmp}
+\begin{proof}[Solution.]
+Let \( S \) be the set of all distributions of 15 apples to 4 students. We can represent S as the collection of all ordered sequences of length 4 whose components add up to 15. For example, the sequence (7,0,4,4) means that the first student gets 7 apples, the second gets 0, the third and fourth get 4 apples each. We may now write: \[ S=\{(a,b,c,d): a,b,c,d\in\mathbb N_0, a+b+c+d=15\}.\] Consider the set \( T \) of all sequences of length \( 18 \) that consist of \( 15 \) zeroes and \( 3 \) ones. For each \( (a,b,c,d)\in S \) we define \( f(a,b,c,d) \) in the following way: \[ f(a,b,c,d)=\underbrace{00\dots 0}_a1\underbrace{00\dots 0}_b1\underbrace{00\dots 0}_c1\underbrace{00\dots 0}_d.\] Then \( f:S\to T \) is a bijection and this is very easy to verify. Therefore \( |S|=|T| \). However, it is easy to find the number of elements of \( T \). This is the same problem as choosing \( 3 \) elements from the set of \( 18 \) zeroes and turning them into ones. This can be done in \( \binom{18}3 \) ways. Therefore there are \( \binom{18}3 \) ways to distribute \( 15 \) apples to \( 4 \) students.
+\end{proof}
+
+\begin{exmp}
+Determine the number of subsets of {1, 2, 3, 4, ..., 50} whose sum of elements is larger than or equal to 638.
+\end{exmp}
+\begin{proof}[Solution.]
+Let \( U=\{1,2,\dots, 50\} \). Denote by \( S \) the set of all subsets of \( U \) whose sum of elements is larger than or equal to \( 638 \). Let \( T \) be the set of those subsets whose sum of elements is at most \( 637 \). Then we have \( U=S\cup T \) and \( S\cap T=\emptyset \). Consider the following function \( f \) on the set \( S \). If \( A\subseteq S \) we define \( f(A)=A^C \). Since the total sum of all elements of \( U \) is \( 1+2+\cdots+ 50=\frac{50\cdot 51}2=25\cdot 51=1275 \) we see that the sum of elements of \( A^C \) is smaller than or equal to \( 1275-638=637 \) therefore \( A^C\subseteq T \). Clearly \( f \) is a bijection, which means that \( |S|=|T| \) and from \( U=S\cup T \) we get \( |U|=2|S| \). We know that \( |U|=2^{50} \) and this implies that \( |S|=2^{49} \).
+\end{proof}
+\end{document}

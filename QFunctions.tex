@@ -1,0 +1,110 @@
+Functions
+1.	(10 p.)
+	There are four diagrams in the picture below. They are labeled \( f \), \( g \), \( h \), and \( k \). Which of the diagrams correspond to functions?
+picture2
+Hide solution
+
+Correct answer: D
+Solution: Graph \( f \) does not correspond to a function because there is an element in the domain that is not mapped to anything in the co-domain (the blue round thing). Similarly, \( h \) is not a function, because there are two arrows from the apple in the domain. The answer is: \( g \) and \( k \).
+
+   A    There are no functions among \( f \), \( g \), \( h \), and \( k \).
+
+   B    \( f \) is the only graph that corresponds to a function.
+
+   C    \( g \) and \( h \) are the only graphs that correspond to functions.
+
+   D    \( g \) and \( k \) are the only graphs that correspond to functions.
+
+   E    \( k \) is the only graph that corresponds to a function.
+
+   N
+	
+
+2.	(21 p.)
+	Let \( A\subseteq \mathbb Z \) be the set of all integers that are divisible by \( 5 \). For each \( k\in\{1,2,\dots, 1000\} \) we define the function \( f_k:A\to \mathbb Z \) in the following way: \[ f_k(x)=x^2+k\cdot x.\]
+
+How many functions from the sequence \( f_1 \), \( f_2 \), ..., \( f_{1000} \) are one-to-one?
+Hide solution
+
+Correct answer: E
+Solution:
+
+The function \( f_k \) is injective if the equality \( f_k(x)=f_k(y) \) always implies \( x=y \). Let us analyze the situation in which \( f_k(x)=f_k(y) \). Then we have \[ x^2+kx=y^2+ky.\] This further yields \( x^2-y^2+k(x-y)=0 \), or equivalently \( (x-y)(x+y+k)=0 \). The last equation could be satisfied for non-equal values of \( x \) and \( y \) only if \( x+y+k=0 \).
+
+Consider the case \( 5\nmid k \). Since \( x \) and \( y \) are both divisible by \( 5 \), then \( x+y+k \) is never divisible by \( k \), hence it can’t be 0. In this case the function \( f_k \) is a bijection.
+
+Consider now the case \( 5\mid k \). We can now choose \( x=-k \) and \( y=0 \) and we will have \( f_k(x)=-k^2+k\cdot (-k)=0=0^2+k\cdot 0=f_k(0) \). Thus \( f_k \) is not a bijection.
+
+Therefore the function \( f_k \) is bijection if and only if \( 5\not\mid k \). There are \( 800 \) such functions.
+
+   A    \( 0 \)
+
+   B    \( 200 \)
+
+   C    \( 400 \)
+
+   D    \( 600 \)
+
+   E    \( 800 \)
+
+   N
+	
+
+3.	(21 p.)
+	Determine the number of injective functions \( f:\{1,2,3\}\to\{1,2,3,4,5\} \).
+Hide solution
+
+Correct answer: C
+Solution: Since we are looking for injective functions, each of the numbers \( 1 \), \( 2 \), \( 3 \) has to be mapped to a unique number from \( \{1,2,3,4,5\} \). There are \( 5 \) possible values for \( f(1) \). Each of them leaves \( 4 \) possibilities for \( f(2) \). If \( f(1) \) and \( f(2) \) are determined there are \( 3 \) possibilities for \( f(2) \). Hence the total number of injective functions is \( 5\cdot 4\cdot 3=60 \).
+
+   A    \( 15 \)
+
+   B    \( 24 \)
+
+   C    \( 60 \)
+
+   D    \( 120 \)
+
+   E    \( 125 \)
+
+   N
+	
+
+4.	(15 p.)
+	Among the following functions from \( \mathbb N \) to \( \mathbb N \) only one is surjective. Which one? (\( \lfloor x\rfloor \) denotes the largest integer not greater than \( x \), while \( \lceil x\rceil \) is the smallest integer not smaller than \( x \))
+Hide solution
+
+Correct answer: A
+Solution: The correct answer is A. For each \( m\in\mathbb N \) we have \[ f(2m-2)=\left\lfloor\frac{2m-2}2\right\rfloor+1=m-1+1=m.\] Thus \( f \) is surjective. The function \( g \) is not surjective as its all values are smaller than \( 1 \). Similarly, function \( h \) is not surjective because \( h(n)=n^3 \). The function \( k \) is not surjective because \( k(n)\neq 2 \) for all \( n \). The function \( l \) satisfies \( l(n)=11n^4 \) and it is not surjective.
+
+   A    \( f(n)=\lfloor\frac n2\rfloor +1 \)
+
+   B    \( g(n)=\lceil\frac1{1+n^2}\rceil \)
+
+   C    \( h(n)=\lfloor\frac{n}{n^2+3}\rfloor+n^3 \)
+
+   D    \( k(n)=n^6-n+1 \)
+
+   E    \( l(n)=11n^4+\lfloor\frac1{n^2+n+1}\rfloor \)
+
+   N
+	
+
+5.	(31 p.)
+	Find the number of surjective functions \( f:\{1,2,3,4,5\}\to\{1,2,3\} \).
+Hide solution
+
+Correct answer: D
+Solution: For \( A\subseteq \{1,2,3\} \) let us denote by \( S_A \) the set of all surjections from \( \{1,2,3,4,5\} \) to \( A \). Our goal is to find the number of elements of \( S_{\{1,2,3\}} \). Let \( F \) be the set of all functions from \( \{1,2,3,4,5\} \) to \( \{1,2,3\} \). Then we have \[ F=S_{\{1,2,3\}}\cup S_{\{1,2\}}\cup S_{\{2,3\}}\cup S_{\{1,3\}}\cup S_{\{1\}}\cup S_{\{2\}}\cup S_{\{3\}}.\] Moreover the sets on the right-hand side are all disjoint. We also have that \( |S_{\{1\}}|=|S_{\{2\}}|=|S_{\{3\}}|=1 \). Let us find \( |S_{\{1,2\}}| \). The total number of functions from \( \{1,2,3,4,5\} \) to \( \{1,2\} \) is \( 2^5 \), while there are only two of them that are not surjections. Hence \( |S_{\{1,2\}}|=2^5-2 \). Similar equalities holds for \( |S_{\{2,3\}}| \) and \( |S_{\{1,3\}}| \). Since \( |F|=3^5 \) we conclude \[ |S_{\{1,2,3\}}|= 3^5-3\cdot (2^5-2)-3=243-90-3=150.\]
+
+   A    96
+
+   B    117
+
+   C    120
+
+   D    150
+
+   E    243
+
+   N    

@@ -1,0 +1,199 @@
+\documentclass[paper=a4, fontsize=12pt]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{graphicx,wrapfig,lipsum}
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\usepackage[margin=1in]{geometry}  % set the margins to 1in on all sides
+\usepackage[hidelinks]{hyperref}
+\usepackage{cleveref}
+\usepackage{pgf,tikz}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{conj}[thm]{Conjecture}
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+
+
+
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+% various theorems, numbered by section
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{defns}[thm]{Definitions}
+\newtheorem{con}[thm]{Construction}
+\newtheorem{exmp}[thm]{Example}
+\newtheorem{exmps}[thm]{Examples}
+\newtheorem{notn}[thm]{Notation}
+\newtheorem{notns}[thm]{Notations}
+\newtheorem{addm}[thm]{Addendum}
+\newtheorem{exer}[thm]{Exercise}
+
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{rems}[thm]{Remarks}
+\newtheorem{warn}[thm]{Warning}
+\newtheorem{sch}[thm]{Scholium}
+\DeclareMathOperator{\id}{id}
+
+\newcommand{\bd}[1]{\mathbf{#1}}  % for bolding symbols
+\newcommand{\RR}{\mathbb{R}}      % for Real numbers
+\newcommand{\ZZ}{\mathbb{Z}}      % for Integers
+\newcommand{\col}[1]{\left[\begin{matrix} #1 \end{matrix} \right]}
+\newcommand{\comb}[2]{\binom{#1^2 + #2^2}{#1+#2}}
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\title{	
+\normalfont \normalsize
+\textsc{Addis Ababa university} \\ [25pt] % Your university, school and/or department name(s)
+\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge Conjectures \\ % The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+
+\author{Miliyon T.} % Your name
+
+\date{\normalsize\today} % Today's date or a custom date
+
+\begin{document}
+
+\definecolor{ffffff}{rgb}{1.,1.,1.}
+\definecolor{qqqqff}{rgb}{0.,0.,1.}
+\maketitle % Print the title
+\section{Conjecture}
+
+\begin{conj}\footnote{Except for $n-1=12k$, where $k\in \mathbb{N}$.}
+$$
+\binom{n}{3}=
+\begin{cases}
+odd,&\mbox{ where } n \mbox{ is prime and } n-2 \mbox{ is its twin }\\
+even,&\mbox{ otherwise }
+\end{cases}
+$$
+\end{conj}
+
+\begin{proof}(Intuition)
+\begin{align*}
+\binom{n}{3}&=\frac{n!}{(n-3)!3!}\\
+            &=\frac{n(n-1)(n-2)}{6}
+\end{align*}
+Now we have 
+$$
+\binom{n}{3}=
+\begin{cases}
+even &\mbox{if } 12|n(n-1)(n-2)\\
+odd,&\mbox{ otherwise }
+\end{cases}
+$$
+For a trivial reason let $n>3$.\\
+
+\begin{description}
+  \item[Case 1:] If $n$ is even, then is $n-2$. For an obvious reason, from $n$, $n-1$ and $n-2$ one of them is a multiple of 3. Hence $12|n(n-1)(n-2)$.
+  \item[Case 2:] If $n$ is odd.
+\end{description}
+\end{proof}
+
+\newpage
+\begin{conj}\label{conj2}
+The number of possible triangles in a complete graph of order $n$ ($K_n$) is 
+$$
+\begin{cases}
+\frac{n^2(n-2)^2(n-1)^2)}{6^2},&\mbox{ where } \binom{n}{3} \mbox{ is odd.}\\
+\frac{(n^2-n)(n^2-4)(n^2-5n+12)}{12^2} ,&\mbox{where }\binom{n}{3} \mbox{is even.}
+\end{cases}
+$$
+\end{conj}
+
+\begin{proof}(Intuition)
+\end{proof}
+Let's look at some lower cases 
+
+There are 8 possible triangles in $K_4$(Exercise).
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(0.2,0.015) rectangle (15.66,5.915);
+\draw (4.46,4.495)-- (8.5,1.335);
+\draw (8.5,4.495)-- (4.48,1.335);
+\draw (4.46,4.495)-- (8.5,4.495);
+\draw (4.48,1.335)-- (4.46,4.495);
+\draw (8.5,1.335)-- (4.48,1.335);
+\draw (8.5,4.495)-- (8.5,1.335);
+\begin{scriptsize}
+\draw [fill=qqqqff] (4.46,4.495) circle (1.5pt);
+\draw [fill=qqqqff] (4.48,1.335) circle (1.5pt);
+\draw [fill=qqqqff] (8.5,1.335) circle (1.5pt);
+\draw [fill=qqqqff] (8.5,4.495) circle (1.5pt);
+\end{scriptsize}
+\end{tikzpicture}
+
+Now, let us compute the $\#$ of possible triangle in $K_4$ using (\ref{conj2}). So $n=4$ and $\binom{4}{3}=4$ which is even. Thus, our formula is $\frac{(n^2-n)(n^2-4)(n^2-5n+12)}{12^2}$. Plugging $4$ in place of $n$ gives
+$$\frac{(4^2-4)(4^2-4)(4^2-5(4)+12)}{12^2}=8$$
+
+There are 35 possible triangles in $K_5$(Exercise).
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(0.32,1.635) rectangle (15.78,8.575);
+\fill[color=ffffff,fill=ffffff,fill opacity=0.1] (6.86,8.015) -- (4.28,5.595) -- (5.36,2.395) -- (8.28,2.395) -- (9.46,5.575) -- cycle;
+\draw [color=ffffff] (6.86,8.015)-- (4.28,5.595);
+\draw [color=ffffff] (4.28,5.595)-- (5.36,2.395);
+\draw [color=ffffff] (5.36,2.395)-- (8.28,2.395);
+\draw [color=ffffff] (8.28,2.395)-- (9.46,5.575);
+\draw [color=ffffff] (9.46,5.575)-- (6.86,8.015);
+\draw (6.86,8.015)-- (5.36,2.395);
+\draw (4.28,5.595)-- (8.28,2.395);
+\draw (9.46,5.575)-- (5.36,2.395);
+\draw (6.86,8.015)-- (8.28,2.395);
+\draw (4.28,5.595)-- (9.46,5.575);
+\draw (6.86,8.015)-- (4.28,5.595);
+\draw (5.36,2.395)-- (4.28,5.595);
+\draw (8.28,2.395)-- (5.36,2.395);
+\draw (9.46,5.575)-- (8.28,2.395);
+\draw (6.86,8.015)-- (9.46,5.575);
+\begin{scriptsize}
+\draw [fill=qqqqff] (6.86,8.015) circle (1.5pt);
+\draw [fill=qqqqff] (4.28,5.595) circle (1.5pt);
+\draw [fill=qqqqff] (5.36,2.395) circle (1.5pt);
+\draw [fill=qqqqff] (8.28,2.395) circle (1.5pt);
+\draw [fill=qqqqff] (9.46,5.575) circle (1.5pt);
+\end{scriptsize}
+\end{tikzpicture}
+
+To compute the $\#$ of possible triangle in $K_5$ set $n=5$. Then $\binom{5}{3}=10$ which is even
+\begin{align*}
+\frac{(n^2-n)(n^2-4)(n^2-5n+12)}{12^2} &=\frac{(5^2-5)(5^2-4)(5^2-5(5)+12)}{12^2}\\
+                                       &=35
+\end{align*}
+
+Using (\ref{conj2}) we predict the $\#$ of possible triangle in $K_6$ to be $120$.
+
+
+\newpage
+\begin{thebibliography}{9}
+
+\bibitem{May}
+[Boris A. Kordemsky] ~
+The Moscaow Puzzles, $359$ Mathematical recreations.
+
+
+\end{thebibliography}
+\end{document}

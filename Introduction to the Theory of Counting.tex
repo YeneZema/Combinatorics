@@ -1,0 +1,73 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}								% Package to create dummy text
+\usepackage{amsmath,amsfonts,amsthm,amssymb}					% Math packages
+\usepackage[pdftex]{graphicx}									% Enable pdflatex
+\usepackage{hyperref} % URLs
+\setlength\parindent{0pt}%noindet-to-whole-document
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{conj}[thm]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{defns}[thm]{Definitions}
+\newtheorem{con}[thm]{Construction}
+\newtheorem{exmp}[thm]{Example}
+\newtheorem{notn}[thm]{Notation}
+\newtheorem{notns}[thm]{Notations}
+\newtheorem{addm}[thm]{Addendum}
+\newtheorem{exer}[thm]{Exercise}
+\newtheorem{rem}[thm]{Remark}
+\theoremstyle{plain}
+
+
+
+\begin{document}
+\nocite{}
+
+\title{Introduction to the Theory of Counting}
+
+\author{Miliyon T.}
+\date{October 7, 2013}
+\maketitle
+
+\section{Introduction to the Theory of Counting}
+
+Combinatorics is full of beautiful tricks and most problems we encounter do depend on tricks in one way or another. However, when faced with a new problem, hunting for tricks should not be the first approach to take. If the problem is asking about counting some objects, the question to start with should be "How would I solve this problem if I had an infinite amount of time?" Answering this question would force us to design a labeling of all combinatorial configurations. The key to solving difficult problems is a systematic labeling. We need to develop a very precise language even to understand what "counting" means.
+Bad combinatorics
+
+Before we start, let us point out what is a bad language in combinatorics, and let us see how we can avoid it when necessary.
+
+\begin{exmp}
+There are 5 students in a room. In how many ways can we choose three of them and paint them in green?
+\end{exmp}
+
+\begin{proof}[Solution:]
+We can choose the first student in \( 5 \) ways, the second in \( 4 \), the third in \( 3 \), and since we did overcount each configuration \( 3!=6 \) times, the final answer is \( \frac{5\cdot 4\cdot 3}{6}=10 \).
+\end{proof}
+
+It is easy to see that the previous solution is bad. The above presentation of the solution was made more ugly than necessary, but nevertheless, you can't improve it by minor cosmetic tune-ups. The word "overcounting" is bad on many levels. It even won't pass spell-check.
+
+Here is another source of disaster: "We can choose the first student in 5 ways." Who is the "first student?" Problem didn't mention that guy, and our solution didn't define him (nor her). We can try defining this concept but we will end up in an endless hunt for undefined things that are just going to appear one after another.
+
+Despite the fact that many have used similar arguments in the past and got away with it, we will now solve the previous problem using precise and rigorous mathematical propositions. We will start with stating with the fundamental rule of combinatorics:
+Elements of sets are the only objects that we are allowed to count.
+Good combinatorics
+
+Every problem in the theory of counting needs to be formulated as "How many elements does the set \( S \) have?" Our task is to define set \( S \) and count its elements. Here is the correct presentation of the solution to the problem above.
+
+\begin{exmp}
+There are 5 students in a room. In how many ways can we choose three of them and paint them in green?
+\end{exmp}
+
+\begin{proof}[Solution:] 
+Let us denote the students by \( 1 \), \( 2 \), \( 3 \), \( 4 \), \( 5 \). Let us denote by \( D \) the set of all three-element subsets of \( \{1,2,3,4,5\} \). More precisely, \[ D=\{A: A\subseteq \{1,2,3,4,5\}, |A|=3\}.\] Our goal is to find the number of elements of the set \( D \). Let us introduce the following set \( E \): \[ E=\{(a,b,c)\subseteq \{1,2,3,4,5\}^3: |\{a,b,c\}|=3\}.\] Then each element \( A\in D \) is a three-element set \( \{a,b,c\} \). Let us denote by \( E_A \) those elements \( (a,b,c)\in E \) such that \( \{a,b,c\}=A \). We know that for each \( A\in D \) we have \( |E_A|=3!=6 \) and \( E=\bigcup_{A\in D}E_A \), hence \( |E|=6|D| \). We will now find \( |E| \).
+
+For \( i\in\{1,2,3,4,5\} \), let us denote by \( E_{i} \) the following set: \[ E_i=\{(i,b,c)\in\{1,2,3,4,5\}^3: |\{i,b,c\}|=3\}.\] Due to symmetry we have \( |E_i|=|E_j| \) for \( i\neq j \). We also know that \( E_i\cap E_j=\emptyset \) whenever \( i\neq j \) and \( E=E_1\cup E_2\cup\cdots\cup E_5 \). Therefore \( |E|=5|E_1| \). We can now write \( E_1=E_{12}\cup E_{13}\cup E_{14}\cup E_{15} \) where \[ E_{1j}=\{(1,j,c):c\in\{2,3,4,5\}, c\neq j\}.\] Since all \( E_{12} \), \( \dots \), \( E_{15} \) are disjoint and have the same number of elements we conclude that \( |E_1|=4|E_{12}| \). Finally \( E_{12}=\{(1,2,3), (1,2,4), (1,2,5)\} \) hence \( |E_{12}|=3 \), \( |E_1|=4\cdot 3=12 \), and \( |E|=5\cdot |E_1|=60 \). The required answer is \( |D|=\frac{|E|}{6}=10 \).
+\end{proof}
+
+Even though you are not required to go to this many details when writing mathematics, it is good to know what rigorous and complete proof is and how to write it if you absolutely must. This skill will be of use in solving more complicated problems.
+
+\end{document}

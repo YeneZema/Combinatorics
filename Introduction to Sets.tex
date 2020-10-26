@@ -1,0 +1,77 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}								% Package to create dummy text
+\usepackage{amsmath,amsfonts,amsthm,amssymb}					% Math packages
+\usepackage[pdftex]{graphicx}									% Enable pdflatex
+\usepackage{hyperref} % URLs
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{conj}[thm]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{defns}[thm]{Definitions}
+\newtheorem{con}[thm]{Construction}
+\newtheorem{exmp}[thm]{Example}
+\newtheorem{notn}[thm]{Notation}
+\newtheorem{notns}[thm]{Notations}
+\newtheorem{addm}[thm]{Addendum}
+\newtheorem{exer}[thm]{Exercise}
+\newtheorem{rem}[thm]{Remark}
+\theoremstyle{plain}
+
+
+
+\begin{document}
+\nocite{}
+
+\title{Sets}
+
+\author{Miliyon T.}
+\date{October 7, 2013}
+\maketitle
+
+\section{Introduction to Sets}
+
+Sets are collections of objects. Here are three examples:
+
+1) The set of all snakes in the world;
+2) The set of all leaves in a given forest;
+3) The set of all two-digit integers that are divisible by \( 3 \);
+
+In some cases it is possible to list all elements of the set. One such example is the set \( S \) of all two-digit integers that are divisible by \( 17 \). We can write \[ S=\{17,34,51,68,85\}.\] The order in which we list the elements does not matter. This means that \( \{17,34,51,68,85\} \) is precisely the same set as \( \{34,51,17,68,85\} \). Also, repetitions of elements do not affect sets. The set \( \{17 \), \( 17 \), \( 34 \), \( 34 \), \( 51 \), \( 68 \), \( 85\} \) is the same old \( S \).
+
+Usually we denote sets by capital letters from the alphabet.
+
+\subsection{Elements and Subsets}
+
+If we want to emphasize that something is an element of a set we use the symbol \( \in \). In the case of previously defined set \( S \) we write \( 34\in S \). We also use \( \not\in \) to emphasize that something is not in the set. This is how we do that: \( 23\not\in S \).
+
+A set \( Q \) is a subset of a set \( S \) if every element of \( Q \) is also an element of \( S \). The sentence
+''\( Q \) is a subset of \( S \)''
+
+is written as \( Q\subseteq S \). Example:
+\[ \{34,68\}\subseteq S.\]
+Union, intersection, and difference
+The union \( A\cup B \) of two sets \( A \) and \( B \) is a set containing all elements that are in either \( A \) or \( B \). The intersection \( A\cap B \) is the set containing elements that are in both \( A \) and \( B \).
+
+Let \( S=\{17,34,51,68,85\} \) and \( T=\{5, 7, 17, 71, 85\} \) be two sets. Then
+\[ S\cup T=\{5,7,17,34,51,71,58,85\}\;\;\mbox{and}\;\;\; S\cap T=\{17,85\}.\]
+The difference \( A\setminus B \) is the set containing those elements of \( A \) that are not in \( B \). In the case of previously defined \( S \) and \( T \) we have \[ S\setminus T=\{34,51,68\}.\]
+Complement of a set
+If we know that all elements we are dealing with are elements of a given fixed set \( U \), then we have a special notion for \( U\setminus S \). We write \[ S^C=U\setminus S\] and say \( S^C \) is a complement of \( S \).
+
+Then it is easy to prove the following identities: \[ (A\cup B)^C=A^C\cap B^C;\] \[ (A\cap B)^C=A^C\cup B^C;\] \[ A\setminus B=A\cap B^C.\] The above identities are called de Morgan's laws.
+Other ways to write sets
+So far we described sets by listing all of their elements. We want to study those sets where this cannot be done. We studied the set \( S \) of all two-digit positive integers that are divisible by 17. Consider now the set \( D \) of all positive integers that are divisible by \( 17 \). We can't list all elements of \( D \). However, we can write math propositions involving this set \( D \). Examples are: \[ 85\in D\;\;\; 170\in D\;\;\; 710\not\in D\;\;\; D\cap S=S.\] Although we don't have the list of all elements of \( D \), we are able to guarantee that all the above propositions are correct. If there is a property that uniquely defines the set we use the following syntax involving colon \( : \) to define our set \( D \) \[ D=\{z: \;z\mbox{ is a positive integer that is divisible by }17\}.\]
+
+Some books use vertical line \( | \) instead of colon, but you don't want to do that, because in problem solving vertical line is so precious as it is used for divisibility (we write \( 17|85 \)). In some cultures, the symbol : (colon) is used for division. That should be stopped - using fractions instead is more professional.
+Cartesian product of sets
+
+The cartesian product \( A\times B \) of sets \( A \) and \( B \) is the set of ordered pairs whose first component is from \( A \) and the second component is from \( B \). For example, if \( A=\{1,2,3,4\} \) and \( B=\{3, a, 9\} \), then their cartesian product is: \[ A\times B=\{(1,3), (1, a), (1,9), (2,3), (2,a), (2,9), (3,3), (3,a), (3,9), (4,3), (4,a), (4,9)\}.\] We use the notation \( A^2 \) for \( A\times A \).
+
+Cartesian product is used to formally define many important concepts in mathematics. For the beginning, you may notice that we can define the two-dimensional plane as the product of the line \( \mathbb R \) with itself. Later on we will see that relations, functions, and graphs can be defined using cartesian product.
+
+\end{document}
